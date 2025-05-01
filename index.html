@@ -173,28 +173,73 @@
 </section>
 
 
-    <!-- Showcase Section -->
-<section class="py-20 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
-      Veja como seu negócio pode aparecer
-    </h2>
+   <!-- Showcase Interactive Section -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+    
+    <!-- Botões à esquerda -->
+    <div class="flex flex-col space-y-4 md:w-1/5 text-left">
+      <button onclick="showAd('search')" class="ad-btn bg-blue-100 hover:bg-blue-200 text-blue-800 py-2 px-4 rounded font-bold transition">🔍 Pesquisa</button>
+      <button onclick="showAd('display')" class="ad-btn bg-blue-100 hover:bg-blue-200 text-blue-800 py-2 px-4 rounded font-bold transition">🖼️ Display</button>
+      <button onclick="showAd('shopping')" class="ad-btn bg-blue-100 hover:bg-blue-200 text-blue-800 py-2 px-4 rounded font-bold transition">🛒 Shopping</button>
+      <button onclick="showAd('video')" class="ad-btn bg-blue-100 hover:bg-blue-200 text-blue-800 py-2 px-4 rounded font-bold transition">🎥 Vídeo</button>
+    </div>
 
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <img src="https://www.gstatic.com/marketing-cms/assets/images/ads/a5/00/78bc38a142b393f0b5826de3e581/media-2.png=n-w390-h520-fcrop64=1,00000000ffffffff" alt="Exemplo no Google" class="rounded-xl shadow-xl w-full max-w-md mx-auto">
-      </div>
-      <div>
-        <ul class="space-y-6 text-lg text-gray-700">
-          <li>🔍 Apareça nos resultados do Google com fotos, horário e localização.</li>
-          <li>📍 Destaque seu negócio no Google Maps com rotas e avaliações.</li>
-          <li>🎥 Seja encontrado no YouTube com vídeos curtos e atraentes.</li>
-          <li>💬 Receba mensagens direto pelo Google e conecte-se com novos clientes.</li>
-        </ul>
-      </div>
+    <!-- Imagem central -->
+    <div class="md:w-2/5 my-8 md:my-0 px-4">
+      <img id="ad-image" src="https://www.gstatic.com/marketing-cms/assets/images/ads/a5/00/78bc38a142b393f0b5826de3e581/media-2.png=n-w390-h520-fcrop64=1,00000000ffffffff" class="rounded-xl shadow-xl w-full mx-auto transition duration-300">
+    </div>
+
+    <!-- Descrição à direita -->
+    <div class="md:w-2/5 px-4">
+      <h3 id="ad-title" class="text-2xl font-bold text-gray-800 mb-4">Comece com pesquisa</h3>
+      <p id="ad-desc" class="text-lg text-gray-600">
+        Ajude a gerar vendas, leads ou tráfego exibindo a sua empresa para quem está ativamente pesquisando por produtos ou serviços oferecidos por você.
+      </p>
     </div>
   </div>
 </section>
+
+<!-- Script de troca automática -->
+<script>
+  const ads = {
+    search: {
+      title: 'Comece com pesquisa',
+      desc: 'Ajude a gerar vendas, leads ou tráfego exibindo a sua empresa para quem está ativamente pesquisando por produtos ou serviços oferecidos por você.',
+      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/a5/00/78bc38a142b393f0b5826de3e581/media-2.png=n-w390-h520-fcrop64=1,00000000ffffffff'
+    },
+    display: {
+      title: 'Mostre com display',
+      desc: 'Anuncie com banners gráficos em sites e aplicativos parceiros do Google, alcançando novos públicos com sua marca.',
+      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/31/71/4fce49e445c7b8cc9f9c7b95b3c6/media-1.png=n-w800-h600'
+    },
+    shopping: {
+      title: 'Venda com Shopping',
+      desc: 'Apresente seus produtos com fotos, preço e nome da loja diretamente no Google, ajudando os clientes a comprar com mais facilidade.',
+      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/f5/4b/90dd1f9f4ea086cb51a693e83cfd/media-3.png=n-w800-h600'
+    },
+    video: {
+      title: 'Impacte com vídeos',
+      desc: 'Conecte-se com seu público usando anúncios em vídeo no YouTube, destacando sua marca ou serviço de forma envolvente.',
+      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/20/4f/1a6233444b6cb86ba4dff9ef9d12/media-2.png=n-w800-h600'
+    }
+  };
+
+  let current = 0;
+  const keys = Object.keys(ads);
+
+  function showAd(key) {
+    document.getElementById('ad-title').textContent = ads[key].title;
+    document.getElementById('ad-desc').textContent = ads[key].desc;
+    document.getElementById('ad-image').src = ads[key].img;
+  }
+
+  setInterval(() => {
+    current = (current + 1) % keys.length;
+    showAd(keys[current]);
+  }, 8000); // muda a cada 8 segundos
+</script>
+
 
 
     <!-- Benefits -->
