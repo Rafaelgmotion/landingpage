@@ -176,12 +176,27 @@
 <section class="py-20 bg-white">
   <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
     
-    <!-- Tabs à esquerda -->
+    <!-- Tabs à esquerda com ícones SVG -->
     <div class="flex flex-col space-y-2 md:w-1/5 text-left">
-      <button id="feature-tab-search" class="tab-btn active" data-type="search" role="tab" aria-controls="tab-search">🔍 Pesquisa</button>
-      <button id="feature-tab-display" class="tab-btn" data-type="display" role="tab" aria-controls="tab-display">🖼️ Display</button>
-      <button id="feature-tab-shopping" class="tab-btn" data-type="shopping" role="tab" aria-controls="tab-shopping">🛒 Shopping</button>
-      <button id="feature-tab-video" class="tab-btn" data-type="video" role="tab" aria-controls="tab-video">🎥 Vídeo</button>
+      <button id="feature-tab-search" class="tab-btn active flex items-center space-x-2" data-type="search" role="tab" aria-controls="tab-search">
+        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" /></svg>
+        <span>Pesquisa</span>
+      </button>
+      <button id="feature-tab-display" class="tab-btn flex items-center space-x-2" data-type="display" role="tab" aria-controls="tab-display">
+        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 5h16v12H4zM2 17h20v2H2z" /></svg>
+        <span>Display</span>
+      </button>
+      <button id="feature-tab-shopping" class="tab-btn flex items-center space-x-2" data-type="shopping" role="tab" aria-controls="tab-shopping">
+        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 7h10l1 10H6z" /><circle cx="9" cy="20" r="1" /><circle cx="17" cy="20" r="1" /></svg>
+        <span>Shopping</span>
+      </button>
+      <button id="feature-tab-video" class="tab-btn flex items-center space-x-2" data-type="video" role="tab" aria-controls="tab-video">
+        <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M10 8.64v6.72L15.27 12z" />
+          <path d="M21.8 7.8a2.51 2.51 0 0 0-1.77-1.78C18.54 6 12 6 12 6s-6.54 0-8.03.02A2.51 2.51 0 0 0 2.2 7.8 26.16 26.16 0 0 0 2 12a26.16 26.16 0 0 0 .2 4.2 2.51 2.51 0 0 0 1.77 1.78C5.46 18 12 18 12 18s6.54 0 8.03-.02a2.51 2.51 0 0 0 1.77-1.78A26.16 26.16 0 0 0 22 12a26.16 26.16 0 0 0-.2-4.2z" />
+        </svg>
+        <span>Vídeo</span>
+      </button>
     </div>
 
     <!-- Imagem central -->
@@ -215,22 +230,22 @@
     search: {
       title: 'Comece com pesquisa',
       desc: 'Ajude a gerar vendas, leads ou tráfego exibindo a sua empresa para quem está ativamente pesquisando por produtos ou serviços oferecidos por você.',
-      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/a5/00/78bc38a142b393f0b5826de3e581/media-2.png=n-w390-h520-fcrop64=1,00000000ffffffff'
+      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/a8/db/aecc8b2449c4b87aadcdf725451f/group-1739332265-1.png=n-w713-h918-fcrop64=1,00000000ffffffff'
     },
     display: {
       title: 'Mostre com display',
       desc: 'Anuncie com banners gráficos em sites e aplicativos parceiros do Google, alcançando novos públicos com sua marca.',
-      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/31/71/4fce49e445c7b8cc9f9c7b95b3c6/media-1.png=n-w800-h600'
+      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/0f/3b/8b3fbd8442c4bc8e320d0479c1b1/group-1739332267.png=n-w744-h918-fcrop64=1,00000000ffffffff'
     },
     shopping: {
       title: 'Venda com Shopping',
       desc: 'Apresente seus produtos com fotos, preço e nome da loja diretamente no Google, ajudando os clientes a comprar com mais facilidade.',
-      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/f5/4b/90dd1f9f4ea086cb51a693e83cfd/media-3.png=n-w800-h600'
+      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/2c/c8/b784e70f4b0aa7b6e5adcb3bf9b3/group-1739332266.png=n-w742-h918-fcrop64=1,00000000ffffffff'
     },
     video: {
       title: 'Impacte com vídeos',
       desc: 'Conecte-se com seu público usando anúncios em vídeo no YouTube, destacando sua marca ou serviço de forma envolvente.',
-      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/20/4f/1a6233444b6cb86ba4dff9ef9d12/media-2.png=n-w800-h600'
+      img: 'https://www.gstatic.com/marketing-cms/assets/images/ads/62/42/f4579dba42b28f5f18d6a49f27f1/group-1739332268.png=n-w694-h918-fcrop64=1,00000000ffffffff'
     }
   };
 
@@ -260,6 +275,7 @@
     showAd(keys[current]);
   }, 8000);
 </script>
+
 
 
 
