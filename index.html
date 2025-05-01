@@ -172,17 +172,16 @@
   </div>
 </section>
 
-
-   <!-- Showcase Interactive Section -->
+    <!-- Showcase Tabs Section -->
 <section class="py-20 bg-white">
   <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
     
-    <!-- Botões à esquerda -->
-    <div class="flex flex-col space-y-4 md:w-1/5 text-left">
-      <button onclick="showAd('search')" class="ad-btn bg-blue-100 hover:bg-blue-200 text-blue-800 py-2 px-4 rounded font-bold transition">🔍 Pesquisa</button>
-      <button onclick="showAd('display')" class="ad-btn bg-blue-100 hover:bg-blue-200 text-blue-800 py-2 px-4 rounded font-bold transition">🖼️ Display</button>
-      <button onclick="showAd('shopping')" class="ad-btn bg-blue-100 hover:bg-blue-200 text-blue-800 py-2 px-4 rounded font-bold transition">🛒 Shopping</button>
-      <button onclick="showAd('video')" class="ad-btn bg-blue-100 hover:bg-blue-200 text-blue-800 py-2 px-4 rounded font-bold transition">🎥 Vídeo</button>
+    <!-- Tabs à esquerda -->
+    <div class="flex flex-col space-y-2 md:w-1/5 text-left">
+      <button id="feature-tab-search" class="tab-btn active" data-type="search" role="tab" aria-controls="tab-search">🔍 Pesquisa</button>
+      <button id="feature-tab-display" class="tab-btn" data-type="display" role="tab" aria-controls="tab-display">🖼️ Display</button>
+      <button id="feature-tab-shopping" class="tab-btn" data-type="shopping" role="tab" aria-controls="tab-shopping">🛒 Shopping</button>
+      <button id="feature-tab-video" class="tab-btn" data-type="video" role="tab" aria-controls="tab-video">🎥 Vídeo</button>
     </div>
 
     <!-- Imagem central -->
@@ -200,7 +199,17 @@
   </div>
 </section>
 
-<!-- Script de troca automática -->
+<!-- Tailwind Custom Style para Tabs -->
+<style>
+  .tab-btn {
+    @apply text-left py-2 px-4 rounded font-medium transition-all duration-300 bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none;
+  }
+  .tab-btn.active {
+    @apply bg-blue-600 text-white font-bold;
+  }
+</style>
+
+<!-- Script de troca -->
 <script>
   const ads = {
     search: {
@@ -225,6 +234,7 @@
     }
   };
 
+  const tabs = document.querySelectorAll('.tab-btn');
   let current = 0;
   const keys = Object.keys(ads);
 
@@ -232,13 +242,25 @@
     document.getElementById('ad-title').textContent = ads[key].title;
     document.getElementById('ad-desc').textContent = ads[key].desc;
     document.getElementById('ad-image').src = ads[key].img;
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    document.querySelector(`[data-type="${key}"]`).classList.add('active');
   }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const key = tab.dataset.type;
+      current = keys.indexOf(key);
+      showAd(key);
+    });
+  });
 
   setInterval(() => {
     current = (current + 1) % keys.length;
     showAd(keys[current]);
-  }, 8000); // muda a cada 8 segundos
+  }, 8000);
 </script>
+
 
 
 
