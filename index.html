@@ -40,25 +40,84 @@
     </style>
 </head>
 <body class="font-sans bg-gray-50">
-    <!-- Header -->
-    <header class="google-gradient text-white py-6">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <div class="text-2xl font-bold mr-2">G</div>
-                <div class="text-2xl font-bold mr-2" style="color: #EA4335;">o</div>
-                <div class="text-2xl font-bold mr-2" style="color: #FBBC05;">o</div>
-                <div class="text-2xl font-bold mr-2">g</div>
-                <div class="text-2xl font-bold" style="color: #34A853;">l</div>
-                <div class="text-2xl font-bold" style="color: #EA4335;">e</div>
-                <span class="ml-4 text-xl">Meu Negócio</span>
-            </div>
-            <div>
-                <a href="https://wa.me/55981356706" class="bg-white text-gray-800 font-bold py-2 px-6 rounded-full google-btn">
-                    Quero aparecer!
-                </a>
-            </div>
+  <!-- Header -->
+<header class="google-gradient text-white py-6 transition-all duration-300 ease-in-out" id="header">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+        <!-- Logo Google -->
+        <div class="flex items-center space-x-1">
+            <div class="text-2xl font-bold mr-1">G</div>
+            <div class="text-2xl font-bold mr-1" style="color: #EA4335;">o</div>
+            <div class="text-2xl font-bold mr-1" style="color: #FBBC05;">o</div>
+            <div class="text-2xl font-bold mr-1">g</div>
+            <div class="text-2xl font-bold" style="color: #34A853;">l</div>
+            <div class="text-2xl font-bold" style="color: #EA4335;">e</div>
+            <span class="ml-4 text-xl font-semibold">Meu Negócio</span>
         </div>
-    </header>
+        
+        <!-- Botão de WhatsApp -->
+        <div>
+            <a href="https://wa.me/55981356706" class="bg-white text-gray-800 font-bold py-2 px-6 rounded-full google-btn transition-transform transform hover:scale-105">
+                Quero aparecer!
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Adicionar estilo CSS para animações e responsividade -->
+<style>
+    /* Logo - Ajuste para responsividade */
+    @media (max-width: 768px) {
+        .google-gradient {
+            padding: 4px 0;
+        }
+
+        #header {
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        .google-btn {
+            padding: 10px 16px;
+            font-size: 1rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .space-x-1 {
+            gap: 0.25rem;
+        }
+    }
+
+    /* Animação de transição no header */
+    #header {
+        transition: padding 0.3s ease-in-out;
+    }
+
+    /* Reduzir altura quando o mouse não estiver sobre o header */
+    #header:hover {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    #header:not(:hover) {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    /* Efeito de hover no botão */
+    .google-btn {
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .google-btn:hover {
+        background-color: #34A853;
+        color: white;
+        transform: scale(1.1);
+    }
+</style>
+
 
     <!-- Hero Section -->
     <section class="py-16">
@@ -148,7 +207,7 @@
           </h3>
           <ul class="space-y-3">
             <li class="flex items-center">
-              <i class="fas fa-check check-icon"></i> Nome correto da marmoraria
+              <i class="fas fa-check check-icon"></i> Nome oficial da sua empresa
             </li>
             <li class="flex items-center">
               <i class="fas fa-check check-icon"></i> Endereço completo
