@@ -1,27 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Página de agradecimento - Solicitação recebida com sucesso">
     <title>Obrigado | RG Motion</title>
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gray-50 flex items-center justify-center min-h-screen">
-
-    <main class="bg-white shadow-xl rounded-2xl px-8 py-10 max-w-xl text-center">
-      <div class="mb-6">
-        <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-        </svg>
-      </div>
-      <h1 class="text-3xl font-bold text-gray-800 mb-4">Solicitação recebida!</h1>
-      <p class="text-gray-600 text-lg mb-6">Obrigado por enviar suas informações. Em breve, entraremos em contato para otimizar seu perfil.</p>
-      <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300">
-        Voltar para o início
-      </a>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                        },
+                        success: {
+                            500: '#10B981',
+                            600: '#059669',
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+            animation: confetti-fall 3s linear forwards;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center min-h-screen p-4">
+    <main class="bg-white shadow-2xl rounded-3xl px-8 py-12 max-w-xl text-center relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-blue-100 opacity-30"></div>
+        <div class="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-green-100 opacity-30"></div>
+        
+        <!-- Main content -->
+        <div class="relative z-10">
+            <div class="mb-8">
+                <div class="w-24 h-24 mx-auto bg-green-100 rounded-full flex items-center justify-center shadow-inner">
+                    <svg class="w-16 h-16 text-green-600 animate-bounce-slow" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+            </div>
+            
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Solicitação recebida!</h1>
+            <p class="text-gray-600 text-lg mb-8 max-w-md mx-auto">
+                Obrigado por enviar suas informações. Nossa equipe já está trabalhando para otimizar seu perfil e entrará em contato em breve.
+            </p>
+            
+            <div class="mb-8">
+                <div class="inline-flex items-center bg-blue-50 rounded-full px-4 py-2 text-blue-600">
+                    <svg class="w-5 h-5 mr-2 animate-pulse-slow" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="font-medium">Tempo médio de resposta: 24h</span>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="index.html" class="inline-flex items-center justify-center bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    Voltar para o início
+                </a>
+                <a href="#" class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-gray-200 shadow-sm hover:shadow-md">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                    </svg>
+                    Fale conosco
+                </a>
+            </div>
+        </div>
     </main>
 
-  </body>
+    <script>
+        // Simple confetti effect
+        function createConfetti() {
+            const colors = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#8B5CF6'];
+            const container = document.createElement('div');
+            container.className = 'confetti';
+            container.style.left = Math.random() * 100 + 'vw';
+            container.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            container.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(container);
+            
+            setTimeout(() => {
+                container.remove();
+            }, 3000);
+        }
+        
+        // Trigger confetti on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(createConfetti, i * 100);
+            }
+        });
+    </script>
+</body>
 </html>
